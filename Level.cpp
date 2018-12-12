@@ -4,6 +4,8 @@
 #include "Wall.h"
 #include "Player.h"
 #include "Diamond.h"
+#include "Dirt.h"
+
 // Library Includes
 #include <iostream>
 #include <fstream>
@@ -199,7 +201,7 @@ void Level::LoadLevel(int _levelToLoad)
 				m_contents[y][x].push_back(player);
 			}
 
-			else if (ch == 'D')
+			else if (ch == 'G')
 			{
 				Diamond* diamond = new Diamond();
 				diamond->SetLevel(this);
@@ -207,6 +209,13 @@ void Level::LoadLevel(int _levelToLoad)
 				m_contents[y][x].push_back(diamond);
 			}
 
+			else if (ch == 'D')
+			{
+				Dirt* dirt = new Dirt();
+				dirt->SetLevel(this);
+				dirt->SetGridPosition(x, y);
+				m_contents[y][x].push_back(dirt);
+			}
 
 			
 			else
