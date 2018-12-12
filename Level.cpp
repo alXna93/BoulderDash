@@ -286,6 +286,40 @@ bool Level::MoveObjectTo(GridObject* _toMove, sf::Vector2i _targetPos)
 	return false;
 }
 
+bool Level::DeleteObjectAt(GridObject* _toDelete)
+{
+	if (_toDelete != nullptr)
+		
+	{
+		//Get current position of grid object
+		sf::Vector2i oldPos = _toDelete->GetGridPosition();
+
+		// Find the object in the list using an iterator
+		//And the find method
+
+		auto it = std::find(m_contents[oldPos.y][oldPos.x].begin(),
+			m_contents[oldPos.y][oldPos.x].end(),
+			_toDelete);
+
+		//if we found object at this location
+		//it will NOT equal the end of the vector
+		if (it != m_contents[oldPos.y][oldPos.x].end())
+		{
+			//we found the object so erase it
+			m_contents[oldPos.y][oldPos.x].erase(it);
+
+			//delete object
+			delete(_toDelete);
+
+			//remember success
+			return true;
+		}
+	}
+
+	//return failure
+	return false;
+}
+
 std::vector< GridObject* > Level::GetObjectAt(sf::Vector2i _targetPos)
 {
 	//Dont trust the data!

@@ -106,6 +106,11 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 			//m_bumpSound.play();
 			//blocker = targetCellContents[i];
 		}
+
+		else
+		{
+			m_level->DeleteObjectAt(targetCellContents[i]);
+		}
 	}
 
 
