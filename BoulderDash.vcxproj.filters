@@ -54,6 +54,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Game Code</Filter>
     </ClCompile>
+    <ClCompile Include="Diamond.cpp">
+      <Filter>Game Code</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Animation.h">
@@ -84,6 +87,9 @@
       <Filter>Game Code</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
+      <Filter>Game Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Diamond.h">
       <Filter>Game Code</Filter>
     </ClInclude>
   </ItemGroup>

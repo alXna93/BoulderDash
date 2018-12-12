@@ -3,7 +3,7 @@
 #include "Framework/AssetManager.h"
 #include "Wall.h"
 #include "Player.h"
-
+#include "Diamond.h"
 // Library Includes
 #include <iostream>
 #include <fstream>
@@ -198,6 +198,15 @@ void Level::LoadLevel(int _levelToLoad)
 				player->SetGridPosition(x, y);
 				m_contents[y][x].push_back(player);
 			}
+
+			else if (ch == 'D')
+			{
+				Diamond* diamond = new Diamond();
+				diamond->SetLevel(this);
+				diamond->SetGridPosition(x, y);
+				m_contents[y][x].push_back(diamond);
+			}
+
 
 			
 			else
