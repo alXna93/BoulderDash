@@ -16,11 +16,11 @@
     <Filter Include="Framework">
       <UniqueIdentifier>{d5a8d3cf-1a3d-41f3-aaf7-a0bb80a50dc2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Code">
+      <UniqueIdentifier>{e7e80981-88fe-401b-9606-f08beed58c42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\Animation.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
@@ -38,6 +38,21 @@
     </ClCompile>
     <ClCompile Include="Framework\TextObject.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Game Code</Filter>
+    </ClCompile>
+    <ClCompile Include="GridObject.cpp">
+      <Filter>Game Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Game Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Game Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game Code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +73,18 @@
     </ClInclude>
     <ClInclude Include="Framework\TextObject.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="GridObject.h">
+      <Filter>Game Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Game Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Game Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game Code</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
