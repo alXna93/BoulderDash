@@ -318,7 +318,7 @@ bool Level::DeleteObjectAt(GridObject* _toDelete)
 			m_contents[oldPos.y][oldPos.x].erase(it);
 
 			//delete object
-			delete(_toDelete);
+			delete _toDelete;
 
 			//remember success
 			return true;
