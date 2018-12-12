@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Diamond.h"
 #include "Dirt.h"
+#include "Rock.h"
 
 // Library Includes
 #include <iostream>
@@ -215,6 +216,14 @@ void Level::LoadLevel(int _levelToLoad)
 				dirt->SetLevel(this);
 				dirt->SetGridPosition(x, y);
 				m_contents[y][x].push_back(dirt);
+			}
+
+			else if (ch == 'R')
+			{
+				Rock* rock = new Rock();
+				rock->SetLevel(this);
+				rock->SetGridPosition(x, y);
+				m_contents[y][x].push_back(rock);
 			}
 
 			
