@@ -1,3 +1,4 @@
+
 #pragma once
 
 // Project Includes
@@ -22,6 +23,7 @@ public:
 private:
 
 	bool AttemptMove(sf::Vector2i _direction);
+	
 
 private:
 

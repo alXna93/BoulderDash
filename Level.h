@@ -32,5 +32,5 @@ private:
 	int m_currentLevel;
 	std::vector< std::vector< sf::Sprite > > m_background;
 	std::vector< std::vector< std::vector< GridObject* > > > m_contents;
-
+	std::vector< std::vector< std::vector< GridObject* > > > m_dirt;
 };

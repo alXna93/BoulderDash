@@ -6,6 +6,7 @@
 #include "Diamond.h"
 #include "Dirt.h"
 #include "Rock.h"
+#include "Exit.h"
 
 // Library Includes
 #include <iostream>
@@ -224,6 +225,14 @@ void Level::LoadLevel(int _levelToLoad)
 				rock->SetLevel(this);
 				rock->SetGridPosition(x, y);
 				m_contents[y][x].push_back(rock);
+			}
+
+			else if (ch == 'E')
+			{
+				Exit* exit = new Exit();
+				exit->SetLevel(this);
+				exit->SetGridPosition(x, y);
+				m_contents[y][x].push_back(exit);
 			}
 
 			
