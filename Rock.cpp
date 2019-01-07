@@ -116,10 +116,12 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 			}
 
 			{			
-					return m_level->MoveObjectTo(this, targetPos);
+				return m_level->MoveObjectTo(this, targetPos);
 			}
 
 		}
+
+	
 	}
 	//If movement is blocked. do nothing, return false
 	return false;
