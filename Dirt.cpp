@@ -6,4 +6,5 @@ Dirt::Dirt()
 	: GridObject()
 {
 	m_sprite.setTexture(AssetManager::GetTexture("graphics/dirt.png"));
+	m_blocksMovement = true;
 }

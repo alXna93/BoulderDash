@@ -5,6 +5,7 @@
 #include "Level.h"
 #include "Player.h"
 
+
 Rock::Rock()
 	: GridObject()
 
@@ -17,6 +18,8 @@ Rock::Rock()
 void Rock::Update(sf::Time _frameTime)
 {
 
+	bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
+	
 }
 bool Rock::AttemptFall(sf::Vector2i _direction)
 {
