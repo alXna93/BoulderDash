@@ -19,7 +19,14 @@ Diamond::Diamond()
 void Diamond::Update(sf::Time _frameTime)
 {
 
-	bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
+	timeSinceFall += _frameTime.asSeconds();
+
+	if (timeSinceFall >= 0.75f)
+	{
+
+		bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
+		timeSinceFall = 0;
+	}
 
 }
 
@@ -63,13 +70,13 @@ bool Diamond::AttemptFall(sf::Vector2i _direction)
 		Player* player = dynamic_cast<Player*>(blocker);
 		if (player != nullptr)
 		{
-			if (_direction == sf::Vector2i(1, 0))
+			if (_direction == sf::Vector2i(0, 1))
 			{
+				player->Kill();
 				return false;
 			}
-			else
+
 			{
-				/*m_level->ReloadLevel();*/
 				return m_level->MoveObjectTo(this, targetPos);
 			}
 
