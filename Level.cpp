@@ -133,14 +133,13 @@ bool Level::CollectDiamonds()
 	//All boxes were stored! (none were UNstored
 	//So we completed the level!
 
-	//TODO: Play victory music!
-
 	//Queue the next level to load during the next update
-	//If we do right away, we get
-	// and access violation due to update still running
+	
 	//m_pendingLevel = m_currentLevel + 1;
 
 	//The level is complete so return true
+	
+
 	return true;
 
 }
