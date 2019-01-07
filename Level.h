@@ -16,7 +16,7 @@ public:
 	void Draw(sf::RenderTarget& _target);
 	void Update(sf::Time _frameTime);
 	void Input(sf::Event _gameEvent);
-
+	void CollectDiamonds();
 	void LoadLevel(int _levelToLoad);
 	void ReloadLevel();
 	void LoadNextLevel();

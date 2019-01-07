@@ -17,6 +17,7 @@ Level::Level()
 	, m_currentLevel(0)
 	, m_background()
 	, m_contents()
+	
 
 {
 	LoadLevel(1);
@@ -98,6 +99,49 @@ void Level::Input(sf::Event _gameEvent)
 
 
 
+
+}
+
+bool Level::CollectDiamonds()
+{
+	//Loop thru and check all boxes to see if they are stored
+	// rows
+	for (int y = 0; y < m_contents.size(); ++y)
+	{
+		// cells
+		for (int x = 0; x < m_contents[y].size(); ++x)
+		{
+			// sticky outies (grid objects)
+			for (int z = 0; z < m_contents[y][x].size(); ++z)
+			{
+				//The current obj we are examining
+				GridObject* thisObject = m_contents[y][x][z];
+
+				//Check if it is a box via dynamic cast
+				Diamond* DiamondObject = dynamic_cast<Diamond*>(thisObject);
+				if (DiamondObject != nullptr)
+				{
+					//It WAS a diamond
+					return false;
+
+					
+				}
+			}
+		}
+	}
+
+	//All boxes were stored! (none were UNstored
+	//So we completed the level!
+
+	//TODO: Play victory music!
+
+	//Queue the next level to load during the next update
+	//If we do right away, we get
+	// and access violation due to update still running
+	//m_pendingLevel = m_currentLevel + 1;
+
+	//The level is complete so return true
+	return true;
 
 }
 
