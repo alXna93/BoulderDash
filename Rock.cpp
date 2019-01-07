@@ -12,13 +12,22 @@ Rock::Rock()
 {
 	m_sprite.setTexture(AssetManager::GetTexture("graphics/rock1.png"));
 	m_blocksMovement = true;
+	timeSinceFall;
 	
 }
 
 void Rock::Update(sf::Time _frameTime)
 {
+	
 
-	bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
+	timeSinceFall += _frameTime.asSeconds();
+
+	if (timeSinceFall >= 0.75f)
+	{
+
+		bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
+		timeSinceFall = 0;
+	}
 	
 }
 bool Rock::AttemptFall(sf::Vector2i _direction)
@@ -68,8 +77,7 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 				return false;
 			}
 
-			{
-			
+			{			
 					return m_level->MoveObjectTo(this, targetPos);
 			}
 
