@@ -3,13 +3,15 @@
 #include "Framework/AssetManager.h"
 #include "Level.h"
 #include "Dirt.h"
+#include "Diamond.h"
 
 Player::Player()
 	: GridObject()
 	, m_pendingMove(0, 0)
-
+	
 {
 	m_sprite.setTexture(AssetManager::GetTexture("graphics/player/playerStandDown.png"));
+	m_blocksMovement = true;
 }
 
 void Player::Input(sf::Event _gameEvent)
@@ -115,6 +117,18 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 				
 				m_level->DeleteObjectAt(targetCellContents[i]);
 				return m_level->MoveObjectTo(this, targetPos);
+			}
+
+			Diamond* diamond = dynamic_cast<Diamond*>(blocker);
+			if (diamond != nullptr)
+			{
+				
+				m_level->DeleteObjectAt(targetCellContents[i]);
+				//update score
+				return m_level->MoveObjectTo(this, targetPos);
+
+				
+
 			}
 		}
 

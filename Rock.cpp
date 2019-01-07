@@ -67,7 +67,7 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 			}
 
 			{
-				m_level->ReloadLevel();
+			//	m_level->ReloadLevel();
 					return m_level->MoveObjectTo(this, targetPos);
 			}
 
