@@ -30,6 +30,44 @@ void Rock::Update(sf::Time _frameTime)
 	}
 	
 }
+
+bool Rock::AttemptPush(sf::Vector2i _direction)
+{
+	//Attempt to move box in given direction
+
+
+	//Get current position
+	//Calculate target position
+	sf::Vector2i targetPos = m_gridPosition + _direction;
+
+	//check if space is empty
+	//get list of objects in our target postion
+	std::vector<GridObject*> targetCellContents = m_level->GetObjectAt(targetPos);
+	bool blocked = false;
+	GridObject* blocker = nullptr;
+
+	
+	for (int i = 0; i < targetCellContents.size(); ++i)
+	{
+		if (targetCellContents[i]->getBlocksMovement() == true)
+		{
+			blocked = true;
+		}
+	}
+
+	//if empty, move there
+
+	if (blocked == false)
+	{
+
+		bool moveSuccessful = m_level->MoveObjectTo(this, targetPos);
+		return moveSuccessful;
+	}
+
+	//If movement is blocked. do nothing, return false
+	return false;
+}
+
 bool Rock::AttemptFall(sf::Vector2i _direction)
 {
 	//Attempting to move in given direction

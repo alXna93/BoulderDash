@@ -11,6 +11,7 @@ public:
 
 	Rock();
 	virtual void Update(sf::Time _frameTime);
+	bool AttemptPush(sf::Vector2i _direction);
 
 private: 
 

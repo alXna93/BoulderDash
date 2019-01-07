@@ -5,6 +5,7 @@
 #include "Dirt.h"
 #include "Diamond.h"
 #include "Exit.h"
+#include "Rock.h"
 
 Player::Player()
 	: GridObject()
@@ -60,7 +61,7 @@ void Player::Input(sf::Event _gameEvent)
 			//it was D!!
 			//Move right
 			m_pendingMove = sf::Vector2i(1, 0);
-			m_sprite.setTexture(AssetManager::GetTexture("graphics/player/playerStandRight.png"));
+			m_sprite.setTexture(AssetManager::GetTexture("graphics/player/PlayerStandRight.png"));
 		}
 
 	}
@@ -136,6 +137,30 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 
 			}
 
+			Rock* pushableRock = dynamic_cast<Rock*>(blocker);
+
+			//If so (the blocker is a box not nullptr)
+			if (pushableRock != nullptr)
+			{
+				//Attempt to push
+				bool pushSucceeded = pushableRock->AttemptPush(_direction);
+
+				//If push succeeded
+				if (pushSucceeded == true)
+				{
+					//Move to new spot (where blocker was)
+					return m_level->MoveObjectTo(this, targetPos);
+
+
+				}
+
+
+
+			}
+
+
+		}
+
 			Exit* exit = dynamic_cast<Exit*>(blocker);
 			if (exit != nullptr)
 			{
@@ -150,7 +175,7 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 			}
 			
 			
-		}
+		
 
 		
 	}
