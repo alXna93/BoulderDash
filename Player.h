@@ -18,7 +18,7 @@ public:
 	//Overriding Methods
 	virtual void Input(sf::Event _gameEvent);
 	virtual void Update(sf::Time _frameTime);
-
+	void Kill();
 
 private:
 

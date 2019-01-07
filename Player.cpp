@@ -168,3 +168,10 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 	return false;
 
 }
+
+void Player::Kill()
+{
+	// Reload current level
+	if (m_level != nullptr)
+		m_level->ReloadLevel();
+}

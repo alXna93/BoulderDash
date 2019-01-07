@@ -267,13 +267,14 @@ float Level::GetCellSize()
 	return m_cellSize;
 }
 
+//check if the door is open
 bool Level::IsDoorOpen()
 {
 	return m_doorOpen;
 }
 bool Level::CheckCompleted()
 {
-	//Loop thru and check all boxes to see if they are stored
+	//Loop thru and check all diamonds to see if they are collected
 // rows
 	for (int y = 0; y < m_contents.size(); ++y)
 	{
@@ -298,7 +299,7 @@ bool Level::CheckCompleted()
 			}
 		}
 	}
-	
+	//change sprite to door open
 	m_doorOpen = true;
 	return true;
 

@@ -58,16 +58,18 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 
 	else
 	{
+		
 		Player* player = dynamic_cast<Player*>(blocker);
 		if (player != nullptr)
 		{
-			if (_direction == sf::Vector2i(1, 0))
+			if (_direction == sf::Vector2i(0, 1))
 			{
+				player->Kill();				
 				return false;
 			}
 
 			{
-			//	m_level->ReloadLevel();
+			
 					return m_level->MoveObjectTo(this, targetPos);
 			}
 
