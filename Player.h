@@ -29,4 +29,5 @@ private:
 
 	sf::Vector2i m_pendingMove;
 
+
 };

@@ -4,14 +4,16 @@
 #include "Level.h"
 #include "Dirt.h"
 #include "Diamond.h"
+#include "Exit.h"
 
 Player::Player()
 	: GridObject()
 	, m_pendingMove(0, 0)
-	
+	 
 {
 	m_sprite.setTexture(AssetManager::GetTexture("graphics/player/playerStandDown.png"));
 	m_blocksMovement = true;
+	
 }
 
 void Player::Input(sf::Event _gameEvent)
@@ -122,14 +124,32 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 			Diamond* diamond = dynamic_cast<Diamond*>(blocker);
 			if (diamond != nullptr)
 			{
-				
+				//delete diamond
+				//check if any diamonds remain
 				m_level->DeleteObjectAt(targetCellContents[i]);
+				m_level->CheckCompleted();
+				
 				//update score
 				return m_level->MoveObjectTo(this, targetPos);
 
 				
 
 			}
+
+			Exit* exit = dynamic_cast<Exit*>(blocker);
+			if (exit != nullptr)
+			{
+				if (m_level->CheckCompleted())
+				{
+					//allow player to go to door
+					return m_level->MoveObjectTo(this, targetPos);
+					//load next level
+				}
+				
+
+			}
+			
+			
 		}
 
 		

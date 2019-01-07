@@ -2,6 +2,8 @@
 // Project Includes
 #include "Exit.h"
 #include "Framework/AssetManager.h"
+#include "Level.h"
+
 
 Exit::Exit()
 	: GridObject() // Initialise parent class
@@ -9,16 +11,15 @@ Exit::Exit()
 {
 	m_sprite.setTexture(AssetManager::GetTexture("graphics/door1.jpg"));
 	m_blocksMovement = true;
+	
 }
 
-//void Exit::Update(sf::Time _frameTime)
-//{
-//	if (m_player != nullptr)
-//	{
-//		bool hasKey = m_player->HasKey();
-//		if (hasKey == true)
-//		{
-//			m_sprite.setTexture(AssetManager::GetTexture("graphics/DoorOpen.png"));
-//		}
-//	}
-//}
+//check if all diamonds collected then change sprite
+void Exit::Update(sf::Time _frameTime)
+{
+	if (m_level->IsDoorOpen())
+	{
+		m_sprite.setTexture(AssetManager::GetTexture("graphics/doorOpened.jpg"));
+	}
+}
+
