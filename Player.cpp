@@ -161,22 +161,24 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 
 		}
 
+		//check if player is at exit and load next level
 			Exit* exit = dynamic_cast<Exit*>(blocker);
 			if (exit != nullptr)
 			{
 				if (m_level->CheckCompleted())
 				{
-					//allow player to go to door
-					return m_level->MoveObjectTo(this, targetPos);
-					//load next level
+						
+						m_level->LoadNextLevel();
+						return true;				
+					
 				}
 				
-
+				return false;
 			}
 			
 			
 		
-
+			return false;
 		
 	}
 

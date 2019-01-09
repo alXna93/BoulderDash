@@ -36,6 +36,7 @@ private:
 	std::vector< std::vector< std::vector< GridObject* > > > m_contents;
 	std::vector< std::vector< std::vector< GridObject* > > > m_dirt;
 	bool m_doorOpen;
+	int m_PendingLevel;
 
 
 

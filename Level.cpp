@@ -18,7 +18,7 @@ Level::Level()
 	, m_background()
 	, m_contents()
 	, m_doorOpen (false)
-	
+	, m_PendingLevel(0)
 
 {
 	LoadLevel(1);
@@ -80,6 +80,11 @@ void Level::Update(sf::Time _frameTime)
 		}
 	}
 
+	if (m_PendingLevel != 0)
+	{
+		LoadLevel(m_PendingLevel);
+		m_PendingLevel = 0;
+	}
 }
 
 void Level::Input(sf::Event _gameEvent)
@@ -255,11 +260,13 @@ void Level::LoadLevel(int _levelToLoad)
 void Level::ReloadLevel()
 {
 	LoadLevel(m_currentLevel);
+	
 }
 
 void Level::LoadNextLevel()
 {
-	LoadLevel(m_currentLevel + 1);
+	
+	m_PendingLevel = m_currentLevel + 1;
 }
 
 float Level::GetCellSize()
