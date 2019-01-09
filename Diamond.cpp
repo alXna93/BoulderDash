@@ -12,7 +12,7 @@ Diamond::Diamond()
 	
 {
 	
-	m_sprite.setTexture(AssetManager::GetTexture("graphics/gem.png"));
+	m_sprite.setTexture(AssetManager::GetTexture("graphics/gem2.png"));
 	m_blocksMovement = true;
 }
 

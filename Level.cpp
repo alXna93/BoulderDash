@@ -259,13 +259,13 @@ void Level::LoadLevel(int _levelToLoad)
 
 void Level::ReloadLevel()
 {
-	LoadLevel(m_currentLevel);
+	m_PendingLevel = m_currentLevel;
 	
 }
 
 void Level::LoadNextLevel()
 {
-	
+	m_doorOpen = false;
 	m_PendingLevel = m_currentLevel + 1;
 }
 
