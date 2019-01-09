@@ -4,6 +4,7 @@
 #include "GridObject.h"
 #include "Level.h"
 #include "Player.h"
+#include "Diamond.h"
 
 
 Rock::Rock()
@@ -122,7 +123,8 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 		}
 		//Make rocks slide off each other
 		Rock* rock = dynamic_cast<Rock*>(blocker);
-		if (rock != nullptr)
+		Diamond* diamond = dynamic_cast<Diamond*>(blocker);
+		if (rock != nullptr || diamond != nullptr)
 		{
 			if (_direction == sf::Vector2i(0, 1))
 			{
@@ -130,20 +132,19 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 				return false;
 			}
 
-			if (_direction == sf::Vector2i(1, 1))
-			{
-				bool fallSuccesful = AttemptFall(sf::Vector2i(-1, 1));
-				return false;
-			}
-
-			if (_direction == sf::Vector2i(-1, 1))
-			{
-				return false;
-			}
-
-
 		}
-	
+
+
+		if (_direction == sf::Vector2i(1, 1))
+		{
+			bool fallSuccesful = AttemptFall(sf::Vector2i(-1, 1));
+			return false;
+		}
+
+		if (_direction == sf::Vector2i(-1, 1))
+		{
+			return false;
+		}
 	}
 	//If movement is blocked. do nothing, return false
 	return false;
