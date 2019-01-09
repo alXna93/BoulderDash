@@ -97,7 +97,7 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 
 
 	//if empty, move there
-
+	//if nothing under rock, fall
 	if (blocked == false)
 	{
 		return m_level->MoveObjectTo(this, targetPos);
@@ -105,7 +105,7 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 
 	else
 	{
-		
+		//if rock falls on player, kill the player 
 		Player* player = dynamic_cast<Player*>(blocker);
 		if (player != nullptr)
 		{
@@ -120,7 +120,29 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 			}
 
 		}
+		//Make rocks slide off each other
+		Rock* rock = dynamic_cast<Rock*>(blocker);
+		if (rock != nullptr)
+		{
+			if (_direction == sf::Vector2i(0, 1))
+			{
+				bool fallSuccesful = AttemptFall(sf::Vector2i(1, 1));
+				return false;
+			}
 
+			if (_direction == sf::Vector2i(1, 1))
+			{
+				bool fallSuccesful = AttemptFall(sf::Vector2i(-1, 1));
+				return false;
+			}
+
+			if (_direction == sf::Vector2i(-1, 1))
+			{
+				return false;
+			}
+
+
+		}
 	
 	}
 	//If movement is blocked. do nothing, return false
@@ -128,4 +150,3 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 }
 
 	
-

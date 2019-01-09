@@ -15,8 +15,7 @@ public:
 
 private: 
 
-	bool AttemptFall(sf::Vector2i _direction);
-	
+	bool AttemptFall(sf::Vector2i _direction);	
 	float timeSinceFall;
 
 };
