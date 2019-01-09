@@ -10,7 +10,7 @@ Rock::Rock()
 	: GridObject()
 
 {
-	m_sprite.setTexture(AssetManager::GetTexture("graphics/rock1.png"));
+	m_sprite.setTexture(AssetManager::GetTexture("graphics/rock2.png"));
 	m_blocksMovement = true;
 	timeSinceFall;
 	
