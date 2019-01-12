@@ -21,7 +21,7 @@ Level::Level()
 	, m_PendingLevel(0)
 
 {
-	LoadLevel(4);
+	LoadLevel(5);
 }
 
 
