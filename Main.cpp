@@ -10,6 +10,7 @@
 #include "Framework/AssetManager.h"
 #include "Level.h"
 
+
 // The main() Function - entry point for our program
 int main()
 {
@@ -19,7 +20,9 @@ int main()
 
 	// Window - to draw to the screen
 	sf::RenderWindow gameWindow;
-	gameWindow.create(sf::VideoMode::getDesktopMode(), "Button Masher", sf::Style::Titlebar | sf::Style::Close);
+	gameWindow.create(sf::VideoMode::getDesktopMode(), "Mine-d your Head", sf::Style::Titlebar | sf::Style::Close);
+
+	
 
 	// Seed our random number generator 
 	srand(time(NULL));
@@ -58,6 +61,7 @@ int main()
 			}
 
 		} // End event polling loop
+
 
 
 		// -----------------------------------------------
