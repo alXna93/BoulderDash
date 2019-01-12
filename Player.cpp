@@ -34,7 +34,7 @@ void Player::Input(sf::Event _gameEvent)
 			//it was W!!
 			//Move up
 			m_pendingMove = sf::Vector2i(0, -1);
-			m_sprite.setTexture(AssetManager::GetTexture("graphics/playerDownmove.png"));
+			m_sprite.setTexture(AssetManager::GetTexture("graphics/playerUpmove.png"));
 		}
 
 
