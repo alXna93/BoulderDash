@@ -21,12 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\Animation.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\AnimationSystem.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\AssetManager.cpp">
       <Filter>Framework</Filter>
     </ClCompile>
@@ -68,12 +62,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\Animation.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\AnimationSystem.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\AssetManager.h">
       <Filter>Framework</Filter>
     </ClInclude>
