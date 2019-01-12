@@ -116,6 +116,18 @@ bool Rock::AttemptFall(sf::Vector2i _direction)
 				return false;
 			}
 
+			if (_direction == sf::Vector2i(1, 1))
+			{
+				player->Kill();
+				return false;
+			}
+
+			if (_direction == sf::Vector2i(-1, 1))
+			{
+				player->Kill();
+				return false;
+			}
+
 			{			
 				return m_level->MoveObjectTo(this, targetPos);
 			}
