@@ -130,7 +130,7 @@ bool Player::AttemptMove(sf::Vector2i _direction)
 				m_level->DeleteObjectAt(targetCellContents[i]);
 				m_level->CheckCompleted();
 				
-				//update score
+				
 				return m_level->MoveObjectTo(this, targetPos);
 
 				
