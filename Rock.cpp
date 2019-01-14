@@ -23,7 +23,7 @@ void Rock::Update(sf::Time _frameTime)
 
 	timeSinceFall += _frameTime.asSeconds();
 
-	if (timeSinceFall >= 0.75f)
+	if (timeSinceFall >= 1.0f)
 	{
 
 		bool fallSuccesful = AttemptFall(sf::Vector2i(0, 1));
